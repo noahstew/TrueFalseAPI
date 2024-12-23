@@ -5,12 +5,21 @@ import { createClient } from '@supabase/supabase-js';
 dotenv.config(); // Load environment variables
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_API_KEY
 );
+
+app.get('/', (req, res) => {
+  console.log('Welcome to TrueFalseAPI');
+  try {
+    res.send('<h1>Welcome to TrueFalseAPI</h1>');
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 // Get all statements
 app.get('/all', async (req, res) => {
@@ -25,17 +34,14 @@ app.get('/all', async (req, res) => {
 
 // Get random statement
 app.get('/random', async (req, res) => {
-  const { data, error } = await supabase
-    .from('statements')
-    .select('*')
-    .order('random()')
-    .limit(1);
+  const { data, error } = await supabase.from('statements').select('*');
 
   if (error) {
     return res.status(500).json({ error: error.message });
   }
 
-  res.json(data);
+  const randomStatement = data[Math.floor(Math.random() * data.length)];
+  res.json(randomStatement);
 });
 
 // All true statements
@@ -97,3 +103,5 @@ app.get('/id/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`API running at http://localhost:${port}`);
 });
+
+export default app;
