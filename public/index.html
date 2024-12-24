@@ -6,7 +6,7 @@
     <title>TrueFalseAPI | Home</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
+  <body id="heroBody">
     <div id="hero">
       <h1 id="heroTitle">TrueFalseAPI</h1>
       <p id="heroDescription">
@@ -14,17 +14,21 @@
         categories to use for your own trivia games, quizzes, or other fun
         projects.
       </p>
-      <div id="heroButtons">
-        <button class="heroButton" onclick="window.location.href = '/docs'">
+      <div class="buttons">
+        <button class="btn" onclick="window.location.href = '/docs'">
           API Docs
         </button>
-        <button class="heroButton" onclick="window.location.href = '/suggest'">
+        <button class="btn" onclick="window.location.href = '/suggest'">
           Suggest Statements
         </button>
       </div>
     </div>
 
     <footer>
+      <div id="links">
+        <a href="/">Home</a> | <a href="/docs">Docs</a> |
+        <a href="/suggest">Suggest</a>
+      </div>
       <p class="footerText">
         <!-- Open in new tab -->
         Made with ❤️ by

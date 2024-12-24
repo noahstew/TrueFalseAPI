@@ -4,14 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrueFalseAPI | Thank you</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Thank you for your suggestion!</h1>
-    <p>
-      Your suggestion has been received and will be reviewed by the TrueFalseAPI
-      team. If approved, it will be added to the API for others to enjoy.
-    </p>
-    <button onclick="window.location.href = '/docs'">API Docs</button>
-    <button onclick="window.location.href = '/suggest'">Suggest Another</button>
+    <div id="thanks">
+      <h1 id="thanksMsg" class="blue-dark">Thank you for your suggestion!</h1>
+      <p id="thanksText">
+        Your suggestion has been received and will be reviewed by the
+        TrueFalseAPI team. If approved, it will be added to the API for others
+        to enjoy.
+      </p>
+      <div class="buttons">
+        <button class="btn" onclick="window.location.href = '/docs'">
+          API Docs
+        </button>
+        <button class="btn" onclick="window.location.href = '/suggest'">
+          Suggest Another
+        </button>
+      </div>
+    </div>
+    <footer>
+      <div id="links">
+        <a href="/">Home</a> | <a href="/docs">Docs</a> |
+        <a href="/suggest">Suggest</a>
+      </div>
+      <p class="footerText">
+        <!-- Open in new tab -->
+        Made with ❤️ by
+        <a href="https://nostew.com" target="_blank">Noah Stewart</a>
+      </p>
+      <div>
+        <p class="footerText">
+          Feeling extra appreciative?
+          <a href="https://buymeacoffee.com/nostew" target="_blank"
+            >Buy me a coffee ☕️</a
+          >
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

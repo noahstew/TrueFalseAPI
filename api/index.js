@@ -38,22 +38,22 @@ app.get('/docs', (req, res) => {
 });
 
 // Suggest page
-app.get('/suggest', (req, res) => {
-  try {
-    res.sendFile('suggest.html', { root: './public' });
-  } catch (error) {
-    console.error(error);
-  }
-});
+// app.get('/suggest', (req, res) => {
+//   try {
+//     res.sendFile('suggest.html', { root: './public' });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 // Thanks page
-app.get('/thanks', (req, res) => {
-  try {
-    res.sendFile('thanks.html', { root: './public' });
-  } catch (error) {
-    console.error(error);
-  }
-});
+// app.get('/thanks', (req, res) => {
+//   try {
+//     res.sendFile('thanks.html', { root: './public' });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 /* 
 API routes
@@ -159,14 +159,14 @@ app.get('/id/:id', async (req, res) => {
 
 // Add a new statement
 app.post('/suggest', async (req, res) => {
-  const { statement, is_true, category, source } = req.body;
+  const { statement, source, is_true, category } = req.body;
 
   const { data, error } = await supabase.from('suggestions').insert([
     {
       statement,
+      source,
       is_true,
       category,
-      source,
     },
   ]);
 
