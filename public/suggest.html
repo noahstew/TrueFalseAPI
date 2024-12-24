@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrueFalseAPI | Suggest</title>
+  </head>
+  <body>
+    <h1>TrueFalseAPI Suggest</h1>
+    <form action="/suggest" method="POST">
+
+      <label for="statement">Statement</label>
+      <input type="text" id="statement" name="statement" required />
+
+      <label for="is_true">Is it factual?</label>
+        <select id="is_true" name="is_true" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+      <label for="category">Category</label>
+    <select id="category" name="category" required>
+        <option value="animals">Animals</option>
+        <option value="food">Food</option>
+        <option value="science">Science</option>
+        <option value="history">History</option>
+        <option value="geography">Geography</option>
+        <option value="sports">Sports</option>
+        <option value="entertainment">Entertainment</option>
+    </select>
+        <label for="source">Source</label>  
+        <input type="link" id="source" name="source" required />
+      <button type="submit">Submit</button>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrueFalseAPI | Docs</title>
+  </head>
+  <body>
+    <h1>TrueFalseAPI Docs</h1>
+    <p>
+      The TrueFalseAPI is a simple API that provides access to a collection of
+      true/false statements across different categories. The API is free to use
+      and does not require an API key.
+    </p>
+    <h2>BaseURL</h2>
+    <p>The base URL for the API is</p>
+    <code>https://true-false-api.vercel.app</code>
+    <h2>Endpoints</h2>
+    <div>
+      <h3>GET /all</h3>
+      <p>Returns all the true/false statements available in the API.</p>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/all</code>
+      <h4>Example Response</h4>
+      <pre>
+[
+    {
+    "id": 1,
+    "statement": "Bananas are berries",
+    "is_true": true,
+    "category": "food"
+    },
+    {
+    "id": 2,
+    "statement": "Tomatoes are fruits",
+    "is_true": true,
+    "category": "food"
+    },
+    ...
+]
+        </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET /true</h3>
+      <p>Returns all the true statements available in the API.</p>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/true</code>
+      <h4>Example Response</h4>
+      <pre>
+[
+    {
+    "id": 1,
+    "statement": "Bananas are berries",
+    "is_true": true,
+    "category": "food"
+    },
+    {
+    "id": 2,
+    "statement": "Tomatoes are fruits",
+    "is_true": true,
+    "category": "food"
+    },
+    ...
+]
+        </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET /false</h3>
+      <p>Returns all the false statements available in the API.</p>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/false</code>
+      <h4>Example Response</h4>
+      <pre>
+[
+  {
+    "id": 5,
+    "statement": "Strawberries are berries",
+    "is_true": false,
+    "category": "food"
+  },
+  {
+    "id": 6,
+    "statement": "Coffee stunts your growth",
+    "is_true": false,
+    "category": "food"
+  },
+  ...
+]
+        </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET /random</h3>
+      <p>Returns a random true/false statement from the API.</p>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/random</code>
+      <h4>Example Response</h4>
+      <pre>
+{
+"id": 1,
+"statement": "Bananas are berries",
+"is_true": true,    
+"category": "food"
+}
+        </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET /{category}</h3>
+      <p>
+        Returns all the true/false statements for a specific category. The
+        available categories are:
+      </p>
+      <ul>
+        <li>animals</li>
+        <li>food</li>
+        <li>history</li>
+        <li>science</li>
+        <li>technology</li>
+        <li>entertainment</li>
+      </ul>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/category/food</code>
+      <h4>Example Response</h4>
+      <pre>
+[
+    {
+    "id": 1,
+    "statement": "Bananas are berries",
+    "is_true": true,
+    "category": "food"
+    },
+    {
+    "id": 2,
+    "statement": "Tomatoes are fruits",
+    "is_true": true,
+    "category": "food"
+    },
+    ...
+]
+    </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET/{category}/random</h3>
+      <p>
+        Returns a random true/false statement from a specific category. The
+        available categories are:
+      </p>
+      <ul>
+        <li>animal</li>
+        <li>food</li>
+        <li>history</li>
+        <li>science</li>
+        <li>technology</li>
+        <li>entertainment</li>
+      </ul>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/food/random</code>
+      <h4>Example Response</h4>
+      <pre>
+{
+"id": 1,
+"statement": "Bananas are berries",
+"is_true": true,
+"category": "food"
+}
+        </pre
+      >
+    </div>
+
+    <div>
+      <h3>GET /id/{id}</h3>
+      <p>Returns a specific true/false statement by its ID.</p>
+      <h4>Example Request</h4>
+      <code>GET https://true-false-api.vercel.app/id/1</code>
+      <h4>Example Response</h4>
+      <pre>
+{
+"id": 1,
+"statement": "Bananas are berries",
+"is_true": true,
+"category": "food"
+}
+    </pre
+      >
+    </div>
+  </body>
+</html>

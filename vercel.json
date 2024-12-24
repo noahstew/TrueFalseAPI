@@ -1,1 +1,8 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api" },
+    { "source": "/suggest", "destination": "/suggest.html" },
+    { "source": "/docs", "destination": "/docs.html" }
+  ]
+}
