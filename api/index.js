@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Global Vars/Setup
 dotenv.config();
@@ -13,47 +15,37 @@ const supabase = createClient(
   process.env.SUPABASE_API_KEY
 );
 
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set('view engine', 'ejs'); // Set view engine to EJS
+app.set('views', path.join(__dirname, '../views')); // Set views folder path
+app.use(express.static(path.join(__dirname, '../public'))); // Serve static files from 'public'
 
 // Static files
 
 // Home route
 app.get('/', (req, res) => {
-  try {
-    res.sendFile('index.html', { root: './public' });
-  } catch (error) {
-    console.error(error);
-  }
+  res.render('index');
 });
 
 // Docs page
 app.get('/docs', (req, res) => {
-  try {
-    res.sendFile('docs.html', { root: './public' });
-  } catch (error) {
-    console.error(error);
-  }
+  res.render('docs');
 });
 
 // Suggest page
-// app.get('/suggest', (req, res) => {
-//   try {
-//     res.sendFile('suggest.html', { root: './public' });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
+app.get('/suggest', (req, res) => {
+  res.render('suggest');
+});
 
 // Thanks page
-// app.get('/thanks', (req, res) => {
-//   try {
-//     res.sendFile('thanks.html', { root: './public' });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
+app.get('/thanks', (req, res) => {
+  res.render('thanks');
+});
 
 /* 
 API routes
